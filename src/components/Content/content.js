@@ -12,7 +12,7 @@ function checkPropType(value, type) {
 export function Content({ nome }) {
   const fontSize = 36;
   const candidateName = 'Johnny';
-  const candidateFullName = useSelector(state => state.candidateNameRedux);
+  const candidateNameRedux = useSelector(state => state.candidate.candidateNameRedux);
   
   const [message, setMessage] = useState(`Parabéns ${ nome }, você finalizou o seu mini-teste.`);
   const [messageAfterFiveSeconds, setMessageAfterFiveSeconds] = useState('');
@@ -28,10 +28,10 @@ export function Content({ nome }) {
     }, 5000);
 
     setTimeout(() => {
-      setMessageAfterTwentySeconds(`Parabéns ${ candidateFullName }, você finalizou o seu teste.`);
+      setMessageAfterTwentySeconds(`Parabéns ${ candidateNameRedux }, você finalizou o seu teste.`);
     }, 20000);
 
-  }, [nome, candidateFullName]);
+  }, [nome, candidateNameRedux]);
 
   return (
     <div style={{ color: 'white', fontSize: fontSize }}>
